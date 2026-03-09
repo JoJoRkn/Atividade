@@ -1,0 +1,9 @@
+{
+  "name": "sabiacode-mvp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Servidor local para o MVP do Sabiacode.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

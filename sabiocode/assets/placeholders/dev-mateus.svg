@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17121b" />
+      <stop offset="100%" stop-color="#3b2851" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" />
+  <circle cx="140" cy="225" r="78" fill="#e3b341" opacity="0.85" />
+  <text x="106" y="240" fill="#0d1117" font-size="48" font-family="Fira Code, monospace">MO</text>
+  <text x="260" y="205" fill="#e6edf3" font-size="48" font-family="Fira Code, monospace">Mateus Oliveira</text>
+  <text x="260" y="250" fill="#58a6ff" font-size="24" font-family="Fira Code, monospace">Node and Angular</text>
+</svg>

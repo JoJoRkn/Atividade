@@ -1,0 +1,37 @@
+:root {
+  --color-bg-primary: #0d1117;
+  --color-bg-secondary: #161b22;
+  --color-bg-tertiary: #1f2937;
+  --color-surface: #111827;
+  --color-border: #2f3a4a;
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #9aa4b2;
+  --color-terminal-green: #3fb950;
+  --color-ide-blue: #58a6ff;
+  --color-danger: #f85149;
+  --color-warning: #e3b341;
+  --color-google: #db4437;
+  --color-overlay: rgba(8, 12, 18, 0.74);
+
+  --font-main: "Fira Code", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  --radius-sm: 0.4rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 0 1px var(--color-border), 0 0 24px rgba(88, 166, 255, 0.15);
+
+  --transition-fast: 180ms ease;
+  --transition-base: 280ms ease;
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101b2d" />
+      <stop offset="100%" stop-color="#223a5f" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" />
+  <circle cx="130" cy="225" r="62" fill="#3fb950" opacity="0.85" />
+  <text x="230" y="205" fill="#e6edf3" font-size="48" font-family="Fira Code, monospace">Nebula Labs</text>
+  <text x="230" y="250" fill="#58a6ff" font-size="24" font-family="Fira Code, monospace">Frontend Squad</text>
+</svg>

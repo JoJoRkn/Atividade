@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SabiáCode | Meu Perfil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+  </head>
+  <body class="app app--dark">
+    <header class="topbar">
+      <div class="topbar__brand">
+        <div class="topbar__brand-text">
+          <h1 class="topbar__title">SabiáCode</h1>
+          <p class="topbar__subtitle">Meu perfil</p>
+        </div>
+        <img class="topbar__logo" src="./assets/images/SabiáCodeNOText.png" alt="Logo SabiáCode" />
+      </div>
+      <nav class="topbar__actions" aria-label="Navegação da conta">
+        <a class="button button--ghost" href="./index.html">Voltar para Swipe</a>
+      </nav>
+    </header>
+
+    <main class="auth-page">
+      <section class="auth-card">
+        <header class="auth-card__header">
+          <h2 class="auth-card__title">Editar Perfil</h2>
+          <p class="auth-card__subtitle" id="profileRoleLabel">Perfil</p>
+        </header>
+
+        <div class="profile-toggle" role="radiogroup" aria-label="Tipo de perfil da conta">
+          <button
+            class="profile-toggle__button"
+            type="button"
+            data-profile-role="developer"
+            aria-checked="false"
+          >
+            Desenvolvedor
+          </button>
+          <button class="profile-toggle__button" type="button" data-profile-role="company" aria-checked="false">
+            Empresa
+          </button>
+        </div>
+
+        <form class="auth-form auth-form--visible" id="profileForm">
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profileEmail">E-mail</label>
+            <input class="auth-form__input" id="profileEmail" name="email" type="email" required />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profilePassword">Nova senha (opcional)</label>
+            <input class="auth-form__input" id="profilePassword" name="password" type="password" minlength="6" />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profilePasswordConfirm">Confirmar nova senha</label>
+            <input class="auth-form__input" id="profilePasswordConfirm" name="passwordConfirm" type="password" minlength="6" />
+          </div>
+
+          <div class="auth-form__group auth-form__group--visible" data-role-group="developer">
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileName">Nome</label>
+              <input class="auth-form__input" id="profileName" name="name" type="text" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileStack">Stack principal</label>
+              <input class="auth-form__input" id="profileStack" name="stack" type="text" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profilePhone">Telefone (WhatsApp)</label>
+              <input class="auth-form__input" id="profilePhone" name="phone" type="tel" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileGithub">GitHub</label>
+              <input class="auth-form__input" id="profileGithub" name="github" type="url" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profilePortfolio">Portfolio/Site pessoal</label>
+              <input class="auth-form__input" id="profilePortfolio" name="portfolio" type="url" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileSocial">Outra rede social</label>
+              <input class="auth-form__input" id="profileSocial" name="social" type="url" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileDescription">Descrição</label>
+              <textarea class="auth-form__input auth-form__input--textarea" id="profileDescription" name="description" rows="4"></textarea>
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profilePhotos">Fotos (até 10)</label>
+              <div class="photo-uploader" id="profilePhotosUploader">
+                <button class="photo-uploader__trigger" type="button" data-photo-trigger="profilePhotos">
+                  Adicionar foto de perfil
+                </button>
+                <input
+                  class="auth-form__input auth-form__input--file-hidden"
+                  id="profilePhotos"
+                  name="photos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="photo-uploader__list" id="profilePhotosList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-form__group" data-role-group="company">
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanyName">Nome da empresa</label>
+              <input class="auth-form__input" id="profileCompanyName" name="companyName" type="text" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanyTechStack">Tecnologias da vaga</label>
+              <input class="auth-form__input" id="profileCompanyTechStack" name="companyTechStack" type="text" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileSalaryCeiling">Teto salarial (R$)</label>
+              <input
+                class="auth-form__input"
+                id="profileSalaryCeiling"
+                name="salaryCeiling"
+                type="text"
+                inputmode="decimal"
+                placeholder="Ex: R$ 12.500 ou A combinar"
+              />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanyPhoneRh">Telefone RH</label>
+              <input class="auth-form__input" id="profileCompanyPhoneRh" name="companyPhoneRh" type="tel" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanySite">Site da empresa</label>
+              <input class="auth-form__input" id="profileCompanySite" name="companySite" type="url" />
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileBenefits">Benefícios</label>
+              <textarea class="auth-form__input auth-form__input--textarea" id="profileBenefits" name="benefits" rows="3"></textarea>
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileWorkModel">Modelo de trabalho</label>
+              <select class="auth-form__input" id="profileWorkModel" name="workModel">
+                <option value="">Selecione</option>
+                <option value="remoto">Home office (Remoto)</option>
+                <option value="hibrido">Híbrido</option>
+                <option value="presencial">Presencial</option>
+              </select>
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanyDescription">Descrição da vaga/empresa</label>
+              <textarea class="auth-form__input auth-form__input--textarea" id="profileCompanyDescription" name="companyDescription" rows="4"></textarea>
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="profileCompanyPhotos">Fotos do ambiente (até 10)</label>
+              <div class="photo-uploader" id="profileCompanyPhotosUploader">
+                <button class="photo-uploader__trigger" type="button" data-photo-trigger="profileCompanyPhotos">
+                  Adicionar foto do ambiente
+                </button>
+                <input
+                  class="auth-form__input auth-form__input--file-hidden"
+                  id="profileCompanyPhotos"
+                  name="companyPhotos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="photo-uploader__list" id="profileCompanyPhotosList"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profileCountry">País</label>
+            <input class="auth-form__input" id="profileCountry" name="country" type="text" />
+          </div>
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profileState">Estado</label>
+            <input class="auth-form__input" id="profileState" name="state" type="text" />
+          </div>
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="profileCity">Cidade</label>
+            <input class="auth-form__input" id="profileCity" name="city" type="text" />
+          </div>
+
+          <button class="button button--success button--full" type="submit">Salvar alterações</button>
+        </form>
+
+        <div class="profile-actions">
+          <button class="button button--danger button--full" id="logoutButton" type="button">Deslogar</button>
+        </div>
+
+        <section class="match-history" aria-label="Historico de matchs">
+          <h3 class="match-history__title">Meus Matchs</h3>
+          <p class="match-history__subtitle">Contatos desbloqueados pelos matchs:</p>
+          <div class="match-history__list" id="matchHistoryList">
+            <article class="match-item">
+              <p class="match-item__text">Nenhum match encontrado ainda.</p>
+            </article>
+          </div>
+        </section>
+
+        <p class="auth-card__feedback" id="profileFeedback" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

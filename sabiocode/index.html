@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SabiáCode | Swipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+  </head>
+  <body class="app app--dark">
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="likes-indicator" id="likesReceivedButton" type="button" hidden aria-label="Likes recebidos">
+          <span class="likes-indicator__icon">★</span>
+          <span class="likes-indicator__count" id="likesReceivedCount">0</span>
+        </button>
+        <div class="topbar__brand">
+          <div class="topbar__brand-text">
+            <h1 class="topbar__title">SabiáCode</h1>
+            <p class="topbar__subtitle">Recruitment.swipe()</p>
+          </div>
+          <img class="topbar__logo" src="./assets/images/SabiáCodeNOText.png" alt="Logo SabiáCode" />
+        </div>
+      </div>
+      <nav class="topbar__actions" aria-label="Ações principais">
+        <a class="button button--ghost" id="sessionNavLink" href="./login.html">Login / Cadastro</a>
+        <button class="button button--premium" id="premiumButton" type="button" hidden>Upgrade para Premium</button>
+      </nav>
+    </header>
+
+    <main class="swipe-page">
+      <section class="swipe-board" aria-label="Área de swipe">
+        <div class="swipe-board__status">
+          <span class="badge badge--info">Use mouse/touch ou teclado</span>
+          <span class="badge badge--terminal" id="roleLabel">Perfil: Desenvolvedor</span>
+        </div>
+
+        <div class="card-stack" id="cardStack">
+          <article class="card card--placeholder" id="emptyCard">
+            <h2 class="card__name">Sem mais perfis por enquanto</h2>
+            <p class="card__bio">
+              Atualize filtros, aguarde novos candidatos/vagas ou volte mais tarde.
+            </p>
+            <button class="button button--ghost" id="resetSwipeFeedButton" type="button">Ver tudo de novo</button>
+          </article>
+        </div>
+
+        <div class="swipe-controls" aria-label="Controles de decisão">
+          <button class="button button--ghost button--icon" id="undoSwipeButton" type="button" aria-label="Voltar perfil">
+            ↩️
+          </button>
+          <button class="button button--danger" id="dislikeButton" type="button">Dislike (←)</button>
+          <button class="button button--neutral" id="superlikeButton" type="button">Superlike (↑)</button>
+          <button class="button button--success" id="likeButton" type="button">Like (→)</button>
+        </div>
+      </section>
+
+    </main>
+
+    <div class="modal" id="matchModal" role="dialog" aria-modal="true" aria-labelledby="matchTitle">
+      <div class="modal__backdrop" data-close-modal="true"></div>
+      <div class="modal__content">
+        <h2 class="modal__title" id="matchTitle">Match encontrado!</h2>
+        <p class="modal__text" id="matchMessage"></p>
+        <div class="modal__contact" id="matchContact"></div>
+        <button class="button button--success" id="closeMatchModal" type="button">Continuar</button>
+      </div>
+    </div>
+
+    <div class="modal" id="premiumModal" role="dialog" aria-modal="true" aria-labelledby="premiumTitle">
+      <div class="modal__backdrop" id="premiumBackdrop"></div>
+      <div class="modal__content modal__content--premium">
+        <h2 class="modal__title" id="premiumTitle">SabiáCode Premium</h2>
+        <p class="modal__text">Desbloqueie vantagens para acelerar sua contratação ou busca por talentos:</p>
+        <ul class="modal__list">
+          <li class="modal__list-item">Mais visibilidade para seu perfil ou vaga</li>
+          <li class="modal__list-item">Superlikes extras por semana</li>
+          <li class="modal__list-item">Prioridade em sugestões de match</li>
+          <li class="modal__list-item">Acesso antecipado a novos recursos</li>
+        </ul>
+        <div class="premium-likes">
+          <h3 class="premium-likes__title">Quem curtiu voce</h3>
+          <p class="premium-likes__lock" id="premiumLikesLock">
+            Recurso Premium: assine para ver quem ja curtiu seu perfil.
+          </p>
+          <div class="premium-likes__list" id="premiumLikesList"></div>
+        </div>
+        <button class="button button--premium" id="premiumCheckoutButton" type="button">
+          Ir para pagamento
+        </button>
+        <button class="button button--ghost" id="closePremiumModal" type="button">Fechar</button>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

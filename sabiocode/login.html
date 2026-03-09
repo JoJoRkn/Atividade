@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SabiáCode | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/variables.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./css/components.css" />
+  </head>
+  <body class="app app--dark">
+    <main class="auth-page">
+      <section class="auth-card">
+        <header class="auth-card__header">
+          <h1 class="auth-card__title">SabiáCode</h1>
+          <p class="auth-card__subtitle">Login / Cadastro</p>
+        </header>
+
+        <div class="auth-mode-toggle" role="tablist" aria-label="Modo de acesso">
+          <button
+            class="auth-mode-toggle__button auth-mode-toggle__button--active"
+            type="button"
+            id="modeLoginButton"
+            data-auth-mode="login"
+            aria-selected="true"
+          >
+            Entrar
+          </button>
+          <button
+            class="auth-mode-toggle__button"
+            type="button"
+            id="modeRegisterButton"
+            data-auth-mode="register"
+            aria-selected="false"
+          >
+            Cadastrar
+          </button>
+        </div>
+
+        <div class="profile-toggle" role="radiogroup" aria-label="Tipo de perfil">
+          <button
+            class="profile-toggle__button profile-toggle__button--active"
+            type="button"
+            data-role="developer"
+            aria-checked="true"
+          >
+            Desenvolvedor
+          </button>
+          <button class="profile-toggle__button" type="button" data-role="company" aria-checked="false">
+            Empresa
+          </button>
+        </div>
+
+        <form class="auth-form auth-form--visible" id="loginForm" data-auth-section="login">
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="loginEmail">E-mail</label>
+            <input class="auth-form__input" id="loginEmail" name="email" type="email" required />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="loginPassword">Senha</label>
+            <input class="auth-form__input" id="loginPassword" name="password" type="password" minlength="6" required />
+          </div>
+
+          <button class="button button--success button--full" type="submit">Entrar</button>
+        </form>
+
+        <form class="auth-form" id="registerForm" data-auth-section="register">
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerEmail">E-mail</label>
+            <input class="auth-form__input" id="registerEmail" name="email" type="email" />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerPassword">Senha</label>
+            <input class="auth-form__input" id="registerPassword" name="password" type="password" minlength="6" />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerPasswordConfirm">Confirmação de senha</label>
+            <input
+              class="auth-form__input"
+              id="registerPasswordConfirm"
+              name="passwordConfirm"
+              type="password"
+              minlength="6"
+            />
+          </div>
+
+          <div class="auth-form__group auth-form__group--visible" data-role-group="developer">
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerName">Nome</label>
+              <input class="auth-form__input" id="registerName" name="name" type="text" />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerStack">Stack principal</label>
+              <input
+                class="auth-form__input"
+                id="registerStack"
+                name="stack"
+                type="text"
+                placeholder="React, Node, Go..."
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerPhone">Telefone (WhatsApp)</label>
+              <input
+                class="auth-form__input"
+                id="registerPhone"
+                name="phone"
+                type="tel"
+                placeholder="+55 11 90000-0000"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerGithub">GitHub</label>
+              <input
+                class="auth-form__input"
+                id="registerGithub"
+                name="github"
+                type="url"
+                placeholder="https://github.com/seu-usuario"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerPortfolio">Portfolio/Site pessoal</label>
+              <input
+                class="auth-form__input"
+                id="registerPortfolio"
+                name="portfolio"
+                type="url"
+                placeholder="https://seuportfolio.dev"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerSocial">Outra rede social</label>
+              <input
+                class="auth-form__input"
+                id="registerSocial"
+                name="social"
+                type="url"
+                placeholder="https://instagram.com/... ou outra"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerPhotos">Fotos (até 10)</label>
+              <div class="photo-uploader" id="registerPhotosUploader">
+                <button class="photo-uploader__trigger" type="button" data-photo-trigger="registerPhotos">
+                  Adicionar foto de perfil
+                </button>
+                <input
+                  class="auth-form__input auth-form__input--file-hidden"
+                  id="registerPhotos"
+                  name="photos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="photo-uploader__list" id="registerPhotosList"></div>
+              </div>
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerDescription">Descrição</label>
+              <textarea
+                class="auth-form__input auth-form__input--textarea"
+                id="registerDescription"
+                name="description"
+                rows="4"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="auth-form__group" data-role-group="company">
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerCompanyName">Nome da empresa</label>
+              <input class="auth-form__input" id="registerCompanyName" name="companyName" type="text" />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerTechStack">Tecnologias da vaga</label>
+              <input
+                class="auth-form__input"
+                id="registerTechStack"
+                name="companyTechStack"
+                type="text"
+                placeholder="React, Node, AWS..."
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerSalaryCeiling">Teto salarial (R$)</label>
+              <input
+                class="auth-form__input"
+                id="registerSalaryCeiling"
+                name="salaryCeiling"
+                type="text"
+                inputmode="decimal"
+                placeholder="Ex: R$ 12.500 ou A combinar"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerCompanyPhoneRh">Telefone RH</label>
+              <input
+                class="auth-form__input"
+                id="registerCompanyPhoneRh"
+                name="companyPhoneRh"
+                type="tel"
+                placeholder="+55 11 90000-0000"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerCompanySite">Site da empresa</label>
+              <input
+                class="auth-form__input"
+                id="registerCompanySite"
+                name="companySite"
+                type="url"
+                placeholder="https://empresa.com"
+              />
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerBenefits">Benefícios</label>
+              <textarea
+                class="auth-form__input auth-form__input--textarea"
+                id="registerBenefits"
+                name="benefits"
+                rows="3"
+                placeholder="Plano de saúde, VR, bônus..."
+              ></textarea>
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerWorkModel">Modelo de trabalho</label>
+              <select class="auth-form__input" id="registerWorkModel" name="workModel">
+                <option value="">Selecione</option>
+                <option value="remoto">Home office (Remoto)</option>
+                <option value="hibrido">Híbrido</option>
+                <option value="presencial">Presencial</option>
+              </select>
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerCompanyPhotos">Fotos do ambiente (até 10)</label>
+              <div class="photo-uploader" id="registerCompanyPhotosUploader">
+                <button class="photo-uploader__trigger" type="button" data-photo-trigger="registerCompanyPhotos">
+                  Adicionar foto do ambiente
+                </button>
+                <input
+                  class="auth-form__input auth-form__input--file-hidden"
+                  id="registerCompanyPhotos"
+                  name="companyPhotos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                />
+                <div class="photo-uploader__list" id="registerCompanyPhotosList"></div>
+              </div>
+            </div>
+
+            <div class="auth-form__field">
+              <label class="auth-form__label" for="registerCompanyDescription">Descrição da vaga/empresa</label>
+              <textarea
+                class="auth-form__input auth-form__input--textarea"
+                id="registerCompanyDescription"
+                name="companyDescription"
+                rows="4"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerCountry">País</label>
+            <input class="auth-form__input" id="registerCountry" name="country" type="text" />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerState">Estado</label>
+            <input class="auth-form__input" id="registerState" name="state" type="text" />
+          </div>
+
+          <div class="auth-form__field">
+            <label class="auth-form__label" for="registerCity">Cidade</label>
+            <input class="auth-form__input" id="registerCity" name="city" type="text" />
+          </div>
+
+          <button class="button button--success button--full" type="submit">Cadastrar</button>
+        </form>
+
+        <button class="button button--google button--full" type="button">Login com Google</button>
+        <p class="auth-card__feedback" id="authFeedback" role="status" aria-live="polite"></p>
+        <a class="button button--ghost button--full" href="./index.html">Ir para Swipe</a>
+      </section>
+    </main>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
